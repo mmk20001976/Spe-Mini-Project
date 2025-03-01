@@ -1,0 +1,28 @@
+- name: Deploy Scientific Calculator
+  hosts: myhosts
+  become: yes
+  environment:
+    DEBIAN_FRONTEND: noninteractive
+  tasks:
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+        update_cache: yes
+
+    - name: Ensure Docker service is running
+      service:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Pull the latest Docker image
+      command: docker pull mmk20001976/scientific-calculator:latest
+
+    - name: Remove existing container (if running)
+      command: docker rm -f calculator_container
+      ignore_errors: yes
+
+    - name: Run the Scientific Calculator container
+      command: docker run -dit --name calculator_container mmk20001976/scientific-calculator:latest
+
