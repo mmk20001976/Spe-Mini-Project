@@ -25,7 +25,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout the code from GitHub repository
-                git branch:'main', url:'https://github.com/mmk20001976/Spe-Mini-Project.git'
+                git branch:'master', url:'https://github.com/mmk20001976/Spe-Mini-Project.git'
             }
         }
 
