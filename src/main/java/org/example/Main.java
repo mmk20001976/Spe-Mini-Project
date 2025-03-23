@@ -14,7 +14,7 @@ public class Main {
             System.out.println("3. Natural Log (ln x)");
             System.out.println("4. Power (x^b)");
             System.out.println("5. Exit");
-            System.out.print("Choose an option: ");
+            System.out.print("Choose an option:\n");
 
             int choice = scanner.nextInt();
             if (choice == 5) {
